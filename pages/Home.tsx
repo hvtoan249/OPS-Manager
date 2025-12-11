@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LucideGamepad2, LucideBarChart3 } from 'lucide-react';
+import { Gamepad2, BarChart3 } from 'lucide-react';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Home: React.FC = () => {
             onClick={() => navigate('/dispatch')}
             className="group w-72 bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-3xl cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-sky-400 hover:shadow-2xl hover:shadow-sky-500/20"
           >
-            <LucideGamepad2 className="w-16 h-16 mx-auto mb-6 text-slate-300 group-hover:text-sky-400 transition-colors" />
+            <Gamepad2 className="w-16 h-16 mx-auto mb-6 text-slate-300 group-hover:text-sky-400 transition-colors" />
             <span className="block text-2xl font-bold mb-2">Dispatch</span>
             <span className="block text-sm text-slate-400 leading-relaxed">
               Gate Planning, Check-in Gantt,<br/>Peak Analysis & Conflict Alerts.
@@ -39,7 +40,7 @@ const Home: React.FC = () => {
             onClick={() => navigate('/analytics')}
             className="group w-72 bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-3xl cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/20"
           >
-            <LucideBarChart3 className="w-16 h-16 mx-auto mb-6 text-slate-300 group-hover:text-emerald-400 transition-colors" />
+            <BarChart3 className="w-16 h-16 mx-auto mb-6 text-slate-300 group-hover:text-emerald-400 transition-colors" />
             <span className="block text-2xl font-bold mb-2">Analytics</span>
             <span className="block text-sm text-slate-400 leading-relaxed">
               Operational Reports, Delay Analysis,<br/>Load Factors & Market Share.

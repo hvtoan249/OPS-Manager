@@ -1,3 +1,5 @@
+
+
 import React, { useState, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import html2canvas from 'html2canvas';
@@ -14,16 +16,15 @@ import {
   ArcElement, 
   PointElement, 
   LineElement, 
-  Filler,
-  getElementAtEvent
+  Filler
 } from 'chart.js';
 import { Bar, Doughnut, Line, getElementAtEvent as getElementAtEventReact } from 'react-chartjs-2';
 import { 
-  LucideHome, LucideBarChart2, LucidePrinter, 
-  LucideDownload, LucideCalendar, LucideFilter, LucideRefreshCw, 
-  LucideArrowRight, LucideX, LucideMap, LucidePieChart, LucideList, 
-  LucidePlane, LucideArrowRightLeft, LucideLayout, LucideMaximize2,
-  LucideGitCompare, LucideTrendingUp, LucideFileSpreadsheet, LucidePlaneTakeoff
+  Home, BarChart2, Printer, 
+  Download, Calendar, Filter, RefreshCw, 
+  ArrowRight, X, Map, PieChart, List, 
+  Plane, ArrowRightLeft, Layout, Maximize2,
+  GitCompare, TrendingUp, FileSpreadsheet, PlaneTakeoff
 } from 'lucide-react';
 import FileUpload from '../components/FileUpload';
 import { Flight, AIRLINE_MAP, AIRPORT_NAMES } from '../types';
@@ -444,7 +445,7 @@ const Analytics: React.FC = () => {
           >
               <div className="flex justify-between items-start z-10">
                   <h4 className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider">{title}</h4>
-                  {viewMode === 'compare_airline' && <LucidePlane className="text-slate-200 group-hover:text-blue-100 transition-colors transform group-hover:scale-110" size={24}/>}
+                  {viewMode === 'compare_airline' && <Plane className="text-slate-200 group-hover:text-blue-100 transition-colors transform group-hover:scale-110" size={24}/>}
               </div>
               <div className="z-10 mt-2">
                   <div className="flex items-baseline justify-between">
@@ -656,17 +657,17 @@ const Analytics: React.FC = () => {
        <div className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
            <div className="px-6 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <div className="bg-blue-600 text-white p-1.5 rounded-lg"><LucideBarChart2 size={20}/></div>
+                    <div className="bg-blue-600 text-white p-1.5 rounded-lg"><BarChart2 size={20}/></div>
                     <span className="font-bold text-lg text-slate-800">Analytics: Production Release</span>
                 </div>
                 <div className="flex gap-2">
-                    <button onClick={() => navigate('/home')} className="px-3 py-1.5 text-xs font-bold text-slate-500 hover:text-blue-600 bg-slate-100 hover:bg-blue-50 rounded-md transition-colors flex items-center gap-2"><LucideHome size={14}/> Home</button>
+                    <button onClick={() => navigate('/home')} className="px-3 py-1.5 text-xs font-bold text-slate-500 hover:text-blue-600 bg-slate-100 hover:bg-blue-50 rounded-md transition-colors flex items-center gap-2"><Home size={14}/> Home</button>
                     
                     <button 
                         onClick={handleExportExcel}
                         className="px-3 py-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-md shadow-sm flex items-center gap-2 transition-all"
                     >
-                        <LucideFileSpreadsheet size={14}/> Excel Data
+                        <FileSpreadsheet size={14}/> Excel Data
                     </button>
 
                     <button 
@@ -674,7 +675,7 @@ const Analytics: React.FC = () => {
                         disabled={isExporting}
                         className={`px-3 py-1.5 text-xs font-bold text-white bg-slate-800 hover:bg-black rounded-md shadow-sm flex items-center gap-2 transition-all ${isExporting ? 'opacity-75 cursor-wait' : ''}`}
                     >
-                        {isExporting ? <LucideRefreshCw size={14} className="animate-spin"/> : <LucidePrinter size={14}/>} 
+                        {isExporting ? <RefreshCw size={14} className="animate-spin"/> : <Printer size={14}/>} 
                         {isExporting ? 'Generating...' : 'Export Report'}
                     </button>
                 </div>
@@ -689,7 +690,7 @@ const Analytics: React.FC = () => {
                            <option value="compare_time">⏳ So sánh Thời gian</option>
                            <option value="compare_airline">✈️ So sánh Hãng bay</option>
                        </select>
-                       <LucideArrowRightLeft size={12} className="absolute right-3 top-2.5 text-blue-400 pointer-events-none"/>
+                       <ArrowRightLeft size={12} className="absolute right-3 top-2.5 text-blue-400 pointer-events-none"/>
                    </div>
                </div>
                
@@ -853,7 +854,7 @@ const Analytics: React.FC = () => {
                        {/* Airline Table */}
                        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                            <div className="px-6 py-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
-                               <h3 className="text-xs font-bold text-slate-700 uppercase flex items-center gap-2"><LucideLayout size={14}/> Thống kê Hãng Hàng không</h3>
+                               <h3 className="text-xs font-bold text-slate-700 uppercase flex items-center gap-2"><Layout size={14}/> Thống kê Hãng Hàng không</h3>
                                <div className="flex gap-1">
                                     <button onClick={() => setAirlineTableLimit('top10')} className={`text-[10px] px-2 py-1 rounded border ${airlineTableLimit==='top10'?'bg-blue-50 text-blue-600 border-blue-200':'bg-white text-slate-500'}`}>Top 10</button>
                                     <button onClick={() => setAirlineTableLimit('full')} className={`text-[10px] px-2 py-1 rounded border ${airlineTableLimit==='full'?'bg-blue-50 text-blue-600 border-blue-200':'bg-white text-slate-500'}`}>Xem tất cả</button>
@@ -875,7 +876,7 @@ const Analytics: React.FC = () => {
                        {/* Route Table */}
                        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                            <div className="px-6 py-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
-                               <h3 className="text-xs font-bold text-slate-700 uppercase flex items-center gap-2"><LucideMap size={14}/> Thống kê Mạng đường bay</h3>
+                               <h3 className="text-xs font-bold text-slate-700 uppercase flex items-center gap-2"><Map size={14}/> Thống kê Mạng đường bay</h3>
                                <div className="flex gap-1">
                                     <button onClick={() => setRouteTableLimit('top10')} className={`text-[10px] px-2 py-1 rounded border ${routeTableLimit==='top10'?'bg-emerald-50 text-emerald-600 border-emerald-200':'bg-white text-slate-500'}`}>Top 10</button>
                                     <button onClick={() => setRouteTableLimit('full')} className={`text-[10px] px-2 py-1 rounded border ${routeTableLimit==='full'?'bg-emerald-50 text-emerald-600 border-emerald-200':'bg-white text-slate-500'}`}>Xem tất cả</button>
@@ -919,15 +920,15 @@ const Analytics: React.FC = () => {
                    </div>
                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
                        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
-                           <h3 className="text-xs font-bold text-slate-700 mb-4 flex items-center gap-2"><LucideBarChart2 size={16} className="text-blue-500"/> 📊 So sánh Sản lượng</h3>
+                           <h3 className="text-xs font-bold text-slate-700 mb-4 flex items-center gap-2"><BarChart2 size={16} className="text-blue-500"/> 📊 So sánh Sản lượng</h3>
                            <div className="flex-1 min-h-[250px]"><Bar data={volData} options={{ responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 6, font: {size: 10, weight: 'bold'} } } }, scales: { y: { beginAtZero: true, grid: { color: '#f8fafc' } }, x: { grid: { display: false } } } }} /></div>
                        </div>
                        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
-                           <h3 className="text-xs font-bold text-slate-700 mb-4 flex items-center gap-2"><LucidePieChart size={16} className="text-purple-500"/> ⚖️ So sánh Load Factor</h3>
+                           <h3 className="text-xs font-bold text-slate-700 mb-4 flex items-center gap-2"><PieChart size={16} className="text-purple-500"/> ⚖️ So sánh Load Factor</h3>
                            <div className="flex-1 min-h-[250px]"><Bar data={lfData} options={{ responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 6, font: {size: 10, weight: 'bold'} } } }, scales: { y: { min: 0, max: 100, grid: { color: '#f8fafc' } }, x: { grid: { display: false } } } }} /></div>
                        </div>
                        <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col">
-                           <h3 className="text-xs font-bold text-slate-700 mb-4 flex items-center gap-2"><LucideList size={16} className="text-red-500"/> ⚠️ So sánh Chất lượng</h3>
+                           <h3 className="text-xs font-bold text-slate-700 mb-4 flex items-center gap-2"><List size={16} className="text-red-500"/> ⚠️ So sánh Chất lượng</h3>
                            <div className="flex-1 min-h-[250px]"><Bar data={qualityData} options={{ responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 6, font: {size: 10, weight: 'bold'} } } }, scales: { y: { beginAtZero: true, grid: { color: '#f8fafc' } }, x: { grid: { display: false } } } }} /></div>
                        </div>
                    </div>
@@ -942,8 +943,8 @@ const Analytics: React.FC = () => {
            <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
                <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
                    <div className="bg-slate-800 p-4 flex justify-between items-center text-white">
-                       <h3 className="font-bold text-lg flex items-center gap-2"><LucidePieChart size={20}/> Khai thác: {selectedAircraftDetail}</h3>
-                       <button onClick={() => setSelectedAircraftDetail(null)} className="hover:text-red-300"><LucideX size={20}/></button>
+                       <h3 className="font-bold text-lg flex items-center gap-2"><PieChart size={20}/> Khai thác: {selectedAircraftDetail}</h3>
+                       <button onClick={() => setSelectedAircraftDetail(null)} className="hover:text-red-300"><X size={20}/></button>
                    </div>
                    <div className="p-6">
                        <div className="h-64">
@@ -965,7 +966,7 @@ const Analytics: React.FC = () => {
                <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-200 flex flex-col max-h-[80vh]">
                    <div className="bg-slate-800 p-4 flex justify-between items-center text-white flex-shrink-0">
                        <h3 className="font-bold text-lg flex items-center gap-2"><span className="bg-white/10 px-2 py-0.5 rounded text-sm">{selectedAirlineDetail}</span> Chi tiết khai thác</h3>
-                       <button onClick={() => setSelectedAirlineDetail(null)} className="hover:text-red-300"><LucideX size={20}/></button>
+                       <button onClick={() => setSelectedAirlineDetail(null)} className="hover:text-red-300"><X size={20}/></button>
                    </div>
                    
                    {/* Tabs */}
@@ -974,13 +975,13 @@ const Analytics: React.FC = () => {
                          onClick={() => setAirlineDetailTab('routes')}
                          className={`flex-1 py-3 text-sm font-bold flex items-center justify-center gap-2 transition-colors ${airlineDetailTab === 'routes' ? 'bg-white text-blue-600 border-b-2 border-blue-600' : 'text-slate-500 hover:bg-slate-200'}`}
                        >
-                           <LucideMap size={16}/> Mạng bay
+                           <Map size={16}/> Mạng bay
                        </button>
                        <button 
                          onClick={() => setAirlineDetailTab('flights')}
                          className={`flex-1 py-3 text-sm font-bold flex items-center justify-center gap-2 transition-colors ${airlineDetailTab === 'flights' ? 'bg-white text-blue-600 border-b-2 border-blue-600' : 'text-slate-500 hover:bg-slate-200'}`}
                        >
-                           <LucidePlaneTakeoff size={16}/> Chuyến bay
+                           <PlaneTakeoff size={16}/> Chuyến bay
                        </button>
                    </div>
 
@@ -1031,8 +1032,8 @@ const Analytics: React.FC = () => {
            <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
                <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl overflow-hidden animate-in fade-in zoom-in duration-200 flex flex-col max-h-[80vh]">
                    <div className="bg-slate-800 p-4 flex justify-between items-center text-white flex-shrink-0">
-                       <h3 className="font-bold text-lg flex items-center gap-2"><LucideList size={20}/> Thống kê chặng bay: <span className="bg-white/10 px-2 py-0.5 rounded text-sm font-mono">{selectedRouteDetail}</span></h3>
-                       <button onClick={() => setSelectedRouteDetail(null)} className="hover:text-red-300"><LucideX size={20}/></button>
+                       <h3 className="font-bold text-lg flex items-center gap-2"><List size={20}/> Thống kê chặng bay: <span className="bg-white/10 px-2 py-0.5 rounded text-sm font-mono">{selectedRouteDetail}</span></h3>
+                       <button onClick={() => setSelectedRouteDetail(null)} className="hover:text-red-300"><X size={20}/></button>
                    </div>
                    <div className="overflow-y-auto flex-1 p-0">
                        <table className="w-full text-sm text-left">
@@ -1062,12 +1063,12 @@ const Analytics: React.FC = () => {
                <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl overflow-hidden animate-in fade-in zoom-in duration-200 flex flex-col max-h-[90vh]">
                    <div className="bg-slate-800 p-4 flex justify-between items-center text-white flex-shrink-0">
                        <h3 className="font-bold text-lg flex items-center gap-2">
-                           <LucideGitCompare size={20}/> So sánh Mạng đường bay
+                           <GitCompare size={20}/> So sánh Mạng đường bay
                            <span className="text-xs bg-white/20 px-2 py-0.5 rounded font-normal ml-2">
                                {viewMode === 'compare_time' ? `Kỳ A vs Kỳ B` : `${airlineA} vs ${airlineB}`}
                            </span>
                        </h3>
-                       <button onClick={() => setShowRouteComparison(false)} className="hover:text-red-300"><LucideX size={20}/></button>
+                       <button onClick={() => setShowRouteComparison(false)} className="hover:text-red-300"><X size={20}/></button>
                    </div>
                    
                    <div className="flex-1 overflow-y-auto p-0 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">

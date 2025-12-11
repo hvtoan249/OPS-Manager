@@ -6,8 +6,8 @@
 
 export const SUPABASE_CONFIG = {
   // Thay thế chuỗi bên dưới bằng Project URL của bạn
-  url: "https://fuixhbistsplpnznvkto.supabase.co",
+  url: "https://your-project.supabase.co",
   
   // Thay thế chuỗi bên dưới bằng Anon/Public Key của bạn
-  anonKey: "sb_publishable_u-0XQr6_H2q9HmDTgKh_ZQ_HB4yBXuh"
+  anonKey: "your-anon-key-here"
 };

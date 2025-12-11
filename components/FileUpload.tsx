@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
-import { LucideFileSpreadsheet, LucideArrowRight, LucideTableProperties } from 'lucide-react';
+import { FileSpreadsheet, ArrowRight, TableProperties } from 'lucide-react';
 
 interface FileUploadProps {
   title: string;
@@ -70,7 +71,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, mappings, onDataReady, e
           </p>
           
           <label className="group cursor-pointer bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-blue-600/30 transform active:scale-95">
-            <LucideFileSpreadsheet className="w-6 h-6 group-hover:animate-bounce" />
+            <FileSpreadsheet className="w-6 h-6 group-hover:animate-bounce" />
             <span className="text-lg">Select Excel File</span>
             <input type="file" accept=".xlsx, .xls" className="hidden" onChange={handleFile} />
           </label>
@@ -87,7 +88,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, mappings, onDataReady, e
         <div className="bg-white border-b border-slate-200 p-6 flex justify-between items-center bg-gradient-to-r from-slate-50 to-white">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-100 text-blue-700 rounded-lg">
-              <LucideTableProperties size={24} />
+              <TableProperties size={24} />
             </div>
             <div>
               <h3 className="text-xl font-bold text-slate-900">Map Data Columns</h3>
@@ -184,7 +185,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, mappings, onDataReady, e
               className="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
                 <span>Launch Dashboard</span>
-                <LucideArrowRight size={20} />
+                <ArrowRight size={20} />
             </button>
           </div>
         </div>

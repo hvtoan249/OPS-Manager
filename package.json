@@ -1,3 +1,4 @@
+
 {
   "name": "airport-ops-master",
   "private": true,
@@ -13,11 +14,11 @@
     "chart.js": "^4.4.1",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
-    "lucide-react": "^0.294.0",
+    "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0",
+    "react-router-dom": "^6.22.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -30,5 +31,8 @@
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

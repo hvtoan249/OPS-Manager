@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import html2canvas from 'html2canvas';
@@ -15,7 +16,7 @@ import {
   Legend 
 } from 'chart.js';
 import { Bar, Line } from 'react-chartjs-2';
-import { LucideHome, LucideLayout, LucideBarChart2, LucideFileSpreadsheet, LucideRotateCw, LucidePrinter, LucideSettings, LucideAlertTriangle, LucidePlane, LucideChevronDown, LucideChevronUp, LucidePlus, LucideTrash2, LucideX, LucideGripHorizontal, LucideEdit, LucideZap, LucideSave, LucideAlertCircle, LucideZoomIn, LucideZoomOut, LucideLoader2, LucideUsers, LucideDoorOpen, LucideCalendarClock, LucideListFilter, LucideWifi, LucideWifiOff, LucideCloud } from 'lucide-react';
+import { Home, Layout, BarChart2, FileSpreadsheet, RotateCw, Printer, Settings, AlertTriangle, Plane, ChevronDown, ChevronUp, Plus, Trash2, X, GripHorizontal, Edit, Zap, Save, AlertCircle, ZoomIn, ZoomOut, Loader2, Users, DoorOpen, CalendarClock, ListFilter, Wifi, WifiOff, Cloud } from 'lucide-react';
 import FileUpload from '../components/FileUpload';
 import { parseExcelDate, toISOLocal, fmtTime, getFlightColor } from '../utils/dateUtils';
 import { Flight, CheckinData, AC_CODE_MAP } from '../types';
@@ -526,7 +527,7 @@ const Dispatch: React.FC = () => {
         <div className="relative">
              {isLoading && (
                  <div className="absolute inset-0 bg-white/80 z-50 flex items-center justify-center flex-col">
-                     <LucideLoader2 className="animate-spin text-blue-600 mb-2" size={40}/>
+                     <Loader2 className="animate-spin text-blue-600 mb-2" size={40}/>
                      <p className="font-bold text-slate-600">Syncing with Supabase...</p>
                  </div>
              )}
@@ -543,7 +544,7 @@ const Dispatch: React.FC = () => {
               extraConfig={
                   <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mt-4">
                       <div className="flex items-center gap-2 text-emerald-800 font-bold mb-2">
-                          <LucideCloud size={18}/>
+                          <Cloud size={18}/>
                           <span>Cloud Sync</span>
                       </div>
                       <p className="text-xs text-emerald-700 leading-relaxed">
@@ -565,8 +566,8 @@ const Dispatch: React.FC = () => {
       <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col animate-in fade-in zoom-in duration-200">
           <div className="bg-slate-800 p-4 flex justify-between items-center">
-             <h3 className="text-lg font-bold text-white flex items-center gap-2"><LucideSettings size={20}/> Manage Gates</h3>
-             <button onClick={() => setGateModalOpen(false)} className="text-slate-400 hover:text-white"><LucideX size={20}/></button>
+             <h3 className="text-lg font-bold text-white flex items-center gap-2"><Settings size={20}/> Manage Gates</h3>
+             <button onClick={() => setGateModalOpen(false)} className="text-slate-400 hover:text-white"><X size={20}/></button>
           </div>
           <div className="p-6">
              <div className="flex gap-2 mb-6">
@@ -591,7 +592,7 @@ const Dispatch: React.FC = () => {
                   }}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-5 rounded-lg font-bold flex items-center gap-2 transition-colors"
                 >
-                    <LucidePlus size={18} /> Add
+                    <Plus size={18} /> Add
                 </button>
              </div>
              
@@ -600,7 +601,7 @@ const Dispatch: React.FC = () => {
                 {activeGates.map(g => (
                   <div key={g} className="bg-white border border-slate-200 p-2 rounded-lg flex justify-between items-center text-sm font-bold text-slate-700 shadow-sm group">
                      {g}
-                     <button onClick={() => setActiveGates(activeGates.filter(x => x !== g))} className="text-slate-300 hover:text-red-500 transition-colors"><LucideTrash2 size={14}/></button>
+                     <button onClick={() => setActiveGates(activeGates.filter(x => x !== g))} className="text-slate-300 hover:text-red-500 transition-colors"><Trash2 size={14}/></button>
                   </div>
                 ))}
              </div>
@@ -674,7 +675,7 @@ const Dispatch: React.FC = () => {
                          Quản lý Quầy: <span className="text-blue-600">{f.id}</span>
                      </h3>
                      <button onClick={() => setCheckinModal(null)} className="text-slate-400 hover:text-slate-600">
-                         <LucideX size={24}/>
+                         <X size={24}/>
                      </button>
                  </div>
                  
@@ -683,7 +684,7 @@ const Dispatch: React.FC = () => {
                          <div className="text-xs font-bold text-orange-800 uppercase mb-3">THAO TÁC NHANH</div>
                          <div className="flex gap-3 flex-wrap">
                              <button className="flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-bold py-2 px-4 rounded-md shadow-sm hover:shadow hover:bg-slate-50 transition-all text-sm">
-                                 <LucideEdit size={16} className="text-orange-500"/> Sửa
+                                 <Edit size={16} className="text-orange-500"/> Sửa
                              </button>
                              <button 
                                 onClick={() => {
@@ -692,7 +693,7 @@ const Dispatch: React.FC = () => {
                                 }}
                                 className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-md shadow-sm transition-all text-sm"
                              >
-                                 <LucidePlus size={16}/> Thêm quầy
+                                 <Plus size={16}/> Thêm quầy
                              </button>
                              <button 
                                 onClick={() => {
@@ -702,7 +703,7 @@ const Dispatch: React.FC = () => {
                                 }}
                                 className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md shadow-sm transition-all text-sm"
                              >
-                                 <LucideTrash2 size={16}/> Xóa quầy này
+                                 <Trash2 size={16}/> Xóa quầy này
                              </button>
                          </div>
                      </div>
@@ -747,7 +748,7 @@ const Dispatch: React.FC = () => {
                                     onClick={handleAutoSequence}
                                     className="w-full flex items-center justify-center gap-2 bg-white border border-slate-300 hover:border-blue-400 hover:text-blue-600 text-slate-600 font-bold py-2.5 rounded-md shadow-sm transition-all text-sm"
                                  >
-                                     <LucideZap size={16} className="text-amber-500"/> Điền tự động
+                                     <Zap size={16} className="text-amber-500"/> Điền tự động
                                  </button>
                              </div>
                          </div>
@@ -790,7 +791,7 @@ const Dispatch: React.FC = () => {
                                      </div>
                                      {isOverlap && (
                                          <div className="text-red-500 animate-pulse" title="Overlap Detected">
-                                             <LucideAlertCircle size={20}/>
+                                             <AlertCircle size={20}/>
                                          </div>
                                      )}
                                      <button 
@@ -801,7 +802,7 @@ const Dispatch: React.FC = () => {
                                         }}
                                         className="p-2 text-slate-300 hover:text-red-500 transition-colors"
                                      >
-                                         <LucideTrash2 size={16}/>
+                                         <Trash2 size={16}/>
                                      </button>
                                  </div>
                              );
@@ -810,7 +811,7 @@ const Dispatch: React.FC = () => {
                  </div>
                  <div className="p-5 border-t border-slate-100 flex justify-end gap-3 bg-white">
                      <button onClick={() => setCheckinModal(null)} className="px-6 py-2.5 border border-slate-300 text-slate-600 font-bold text-sm rounded-md hover:bg-slate-50 transition-colors">Hủy bỏ</button>
-                     <button onClick={() => saveCheckinConfig(checkinModal.idx, rows)} className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-md font-bold text-sm hover:bg-blue-700 shadow-md hover:shadow-blue-500/30 transition-all"><LucideSave size={16}/> Lưu thay đổi</button>
+                     <button onClick={() => saveCheckinConfig(checkinModal.idx, rows)} className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-md font-bold text-sm hover:bg-blue-700 shadow-md hover:shadow-blue-500/30 transition-all"><Save size={16}/> Lưu thay đổi</button>
                  </div>
              </div>
          </div>
@@ -1033,10 +1034,10 @@ const Dispatch: React.FC = () => {
                 >
                     <div className="w-28 flex-shrink-0 border-r border-slate-300 p-2 bg-slate-100 flex flex-col items-center justify-start pt-4 z-20 shadow-[2px_0_5px_rgba(0,0,0,0.05)]">
                          <div className="flex flex-col items-center gap-2 cursor-pointer" onClick={() => setIsQueueOpen(!isQueueOpen)}>
-                             <div className={`p-2 rounded-lg ${isQueueOpen ? 'bg-amber-100 text-amber-600' : 'bg-slate-200 text-slate-500'}`}><LucideAlertTriangle size={20} /></div>
+                             <div className={`p-2 rounded-lg ${isQueueOpen ? 'bg-amber-100 text-amber-600' : 'bg-slate-200 text-slate-500'}`}><AlertTriangle size={20} /></div>
                              <span className="text-[10px] font-black text-slate-500 uppercase text-center leading-tight">Queue</span>
                              <span className="bg-slate-800 text-white px-2 py-0.5 rounded-full text-[10px] font-bold">{unassignedFlights.length}</span>
-                             {isQueueOpen ? <LucideChevronUp size={14} className="text-slate-400 mt-1"/> : <LucideChevronDown size={14} className="text-slate-400 mt-1"/>}
+                             {isQueueOpen ? <ChevronUp size={14} className="text-slate-400 mt-1"/> : <ChevronDown size={14} className="text-slate-400 mt-1"/>}
                          </div>
                     </div>
                     {isQueueOpen && (
@@ -1173,7 +1174,7 @@ const Dispatch: React.FC = () => {
                                              >
                                                  <div className="flex justify-between items-center gap-1 w-full">
                                                      <div className="flex items-center gap-1 overflow-hidden">
-                                                        {w > 40 && <LucidePlane size={10} className="text-slate-500 opacity-50 flex-shrink-0"/>}
+                                                        {w > 40 && <Plane size={10} className="text-slate-500 opacity-50 flex-shrink-0"/>}
                                                         <span className="font-black text-[11px] truncate leading-tight">{it.id}</span>
                                                      </div>
                                                      {w > 100 && (
@@ -1209,7 +1210,7 @@ const Dispatch: React.FC = () => {
         <div className="w-full max-w-6xl flex flex-col gap-4 mb-6">
             <div className="flex justify-between items-end">
                 <h3 className="font-bold text-2xl text-slate-900 flex items-center gap-2">
-                    <LucideBarChart2 className="text-blue-600"/> 
+                    <BarChart2 className="text-blue-600"/> 
                     {peakMode === 'density' ? 'Flight Density Analysis' : (peakMode === 'gate' ? 'Gate Capacity Planning' : 'Check-in Counter Demand')}
                 </h3>
                 <div className="flex bg-white rounded-lg border border-slate-200 p-1 shadow-sm">
@@ -1217,19 +1218,19 @@ const Dispatch: React.FC = () => {
                         onClick={() => setPeakMode('density')} 
                         className={`px-4 py-2 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${peakMode === 'density' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
                     >
-                        <LucidePlane size={14}/> Flight Density
+                        <Plane size={14}/> Flight Density
                     </button>
                     <button 
                         onClick={() => setPeakMode('gate')} 
                         className={`px-4 py-2 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${peakMode === 'gate' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
                     >
-                        <LucideDoorOpen size={14}/> Gate Load
+                        <DoorOpen size={14}/> Gate Load
                     </button>
                     <button 
                         onClick={() => setPeakMode('checkin')} 
                         className={`px-4 py-2 text-xs font-bold rounded-md transition-all flex items-center gap-2 ${peakMode === 'checkin' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
                     >
-                        <LucideUsers size={14}/> Counter Load
+                        <Users size={14}/> Counter Load
                     </button>
                 </div>
             </div>
@@ -1238,7 +1239,7 @@ const Dispatch: React.FC = () => {
             <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2 border-r border-slate-200 pr-4">
-                         <LucideCalendarClock size={18} className="text-slate-400"/>
+                         <CalendarClock size={18} className="text-slate-400"/>
                          <span className="text-xs font-bold text-slate-500 uppercase">Analysis Period</span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -1272,14 +1273,14 @@ const Dispatch: React.FC = () => {
                         className="ml-2 p-1.5 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
                         title="Reset to Schedule Range"
                     >
-                        <LucideRotateCw size={14}/>
+                        <RotateCw size={14}/>
                     </button>
                 </div>
 
                 {/* Granularity Control - Only for Resource Modes */}
                 {peakMode !== 'density' && (
                     <div className="flex items-center gap-2 pl-6 border-l border-slate-200">
-                        <LucideListFilter size={16} className="text-slate-400"/>
+                        <ListFilter size={16} className="text-slate-400"/>
                         <span className="text-xs font-bold text-slate-500 uppercase">Resolution:</span>
                         <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200">
                              <button 
@@ -1560,22 +1561,22 @@ const Dispatch: React.FC = () => {
       <div className="h-16 bg-slate-900 flex items-center justify-between px-6 shadow-md z-30 flex-shrink-0">
           <div className="flex items-center gap-8">
               <span className="font-black text-white flex items-center gap-2 text-xl tracking-tight">
-                  <LucidePlane className="text-blue-400"/> OpsMaster <span className="text-slate-500 font-light">| Dispatch</span>
+                  <Plane className="text-blue-400"/> OpsMaster <span className="text-slate-500 font-light">| Dispatch</span>
               </span>
               <div className="flex gap-2 bg-slate-800/50 p-1 rounded-lg">
-                  <button onClick={() => navigate('/home')} className="flex items-center gap-2 px-4 py-1.5 text-sm font-semibold text-slate-400 hover:text-white hover:bg-white/10 rounded-md transition-all"><LucideHome size={16}/> Home</button>
-                  <button className="flex items-center gap-2 px-4 py-1.5 text-sm font-semibold text-white bg-blue-600 shadow-lg shadow-blue-500/20 rounded-md"><LucideLayout size={16}/> Dispatch</button>
-                  <button onClick={() => navigate('/analytics')} className="flex items-center gap-2 px-4 py-1.5 text-sm font-semibold text-slate-400 hover:text-white hover:bg-white/10 rounded-md transition-all"><LucideBarChart2 size={16}/> Analytics</button>
+                  <button onClick={() => navigate('/home')} className="flex items-center gap-2 px-4 py-1.5 text-sm font-semibold text-slate-400 hover:text-white hover:bg-white/10 rounded-md transition-all"><Home size={16}/> Home</button>
+                  <button className="flex items-center gap-2 px-4 py-1.5 text-sm font-semibold text-white bg-blue-600 shadow-lg shadow-blue-500/20 rounded-md"><Layout size={16}/> Dispatch</button>
+                  <button onClick={() => navigate('/analytics')} className="flex items-center gap-2 px-4 py-1.5 text-sm font-semibold text-slate-400 hover:text-white hover:bg-white/10 rounded-md transition-all"><BarChart2 size={16}/> Analytics</button>
               </div>
           </div>
           <div className="flex items-center gap-4">
                {step > 1 && (
                    <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${isLive ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20' : 'bg-slate-700 text-slate-400'}`}>
-                       {isLive ? <LucideWifi size={14} className="animate-pulse"/> : <LucideWifiOff size={14}/>}
+                       {isLive ? <Wifi size={14} className="animate-pulse"/> : <WifiOff size={14}/>}
                        {isLive ? 'Realtime Connected' : 'Connecting...'}
                    </div>
                )}
-              <button onClick={() => setStep(1)} className="text-slate-400 hover:text-white transition-colors" title="Import New File"><LucideFileSpreadsheet size={20}/></button>
+              <button onClick={() => setStep(1)} className="text-slate-400 hover:text-white transition-colors" title="Import New File"><FileSpreadsheet size={20}/></button>
               <button onClick={() => window.location.reload()} className="bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white font-bold text-xs px-4 py-2 border border-red-500/20 rounded-lg transition-all">Exit Session</button>
           </div>
       </div>
@@ -1637,20 +1638,20 @@ const Dispatch: React.FC = () => {
                   {/* Zoom Controls */}
                   {tab !== 'peak' && (
                       <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200 mr-2">
-                          <button onClick={() => setZoom(Math.max(1, zoom - 1))} className="p-1.5 text-slate-500 hover:text-blue-600 hover:bg-white rounded transition-colors" title="Zoom Out"><LucideZoomOut size={16}/></button>
+                          <button onClick={() => setZoom(Math.max(1, zoom - 1))} className="p-1.5 text-slate-500 hover:text-blue-600 hover:bg-white rounded transition-colors" title="Zoom Out"><ZoomOut size={16}/></button>
                           <span className="text-xs font-bold text-slate-700 w-8 text-center">{zoom}x</span>
-                          <button onClick={() => setZoom(Math.min(10, zoom + 1))} className="p-1.5 text-slate-500 hover:text-blue-600 hover:bg-white rounded transition-colors" title="Zoom In"><LucideZoomIn size={16}/></button>
+                          <button onClick={() => setZoom(Math.min(10, zoom + 1))} className="p-1.5 text-slate-500 hover:text-blue-600 hover:bg-white rounded transition-colors" title="Zoom In"><ZoomIn size={16}/></button>
                       </div>
                   )}
 
-                  <button onClick={() => {}} className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-transparent hover:border-blue-100"><LucideRotateCw size={20} /></button>
-                  {tab === 'gate' && <button onClick={() => setGateModalOpen(true)} className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-transparent hover:border-blue-100"><LucideSettings size={20} /></button>}
+                  <button onClick={() => {}} className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-transparent hover:border-blue-100"><RotateCw size={20} /></button>
+                  {tab === 'gate' && <button onClick={() => setGateModalOpen(true)} className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-transparent hover:border-blue-100"><Settings size={20} /></button>}
                   <button 
                     onClick={handleExportPDF} 
                     disabled={isExporting}
                     className={`flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-black text-white rounded-lg text-xs font-bold shadow-md hover:shadow-lg transition-all ${isExporting ? 'cursor-wait opacity-80' : ''}`}
                   >
-                      {isExporting ? <LucideLoader2 size={16} className="animate-spin"/> : <LucidePrinter size={16} />} 
+                      {isExporting ? <Loader2 size={16} className="animate-spin"/> : <Printer size={16} />} 
                       {isExporting ? 'Generating PDF...' : 'Export PDF'}
                   </button>
               </div>
